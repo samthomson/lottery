@@ -21,5 +21,6 @@ contract Lottery {
     function pickWinner() public {
         uint winnerIndex = random() % players.length;
         players[winnerIndex].transfer(this.balance);
+        players = [];
     }
 }
