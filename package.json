@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/samthomson/lottery/issues"
   },
-  "homepage": "https://github.com/samthomson/lottery#readme"
+  "homepage": "https://github.com/samthomson/lottery#readme",
+  "dependencies": {
+    "ganache-cli": "^6.2.3",
+    "mocha": "^5.2.0",
+    "solc": "^0.5.0",
+    "truffle-hdwallet-provider": "0.0.3",
+    "web3": "^1.0.0-beta.26"
+  }
 }
