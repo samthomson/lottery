@@ -84,4 +84,16 @@ describe('Lottery contract', () => {
 
         assert.equal(0, players.length)
     })
+
+    it('only manager can call pickWinner', async () => {
+        try {
+            await lotteryInstance.methods.pickWinner().send({
+                from: accounts[1],
+                value: web3.utils.toWei('.01', 'ether')
+            })
+            assert(false)
+        } catch (err) {
+            assert(err)
+        }
+    })
 })
