@@ -96,4 +96,23 @@ describe('Lottery contract', () => {
             assert(err)
         }
     })
+
+    it('it runs through as expected; sends money to winner and resets players array', async () => {
+        await lotteryInstance.methods.enter().send({
+            from: accounts[0],
+            value: web3.utils.toWei('2', 'ether')
+        })
+
+        const balanceAfterJoining = await web3.eth.getBalance(accounts[0])
+
+        await lotteryInstance.methods.pickWinner().send({
+            from: accounts[0]
+        })
+
+        const postWinBalance = await web3.eth.getBalance(accounts[0])
+
+        const difference = postWinBalance - balanceAfterJoining
+
+        assert(difference > web3.utils.toWei('1.8', 'ether'))
+    })
 })
