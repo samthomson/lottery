@@ -31,6 +31,9 @@ const deploy = async () => {
 
     console.log(`contract deployed to ${deployResult.options.address}`)
 
+    console.log(`with ABI: ${interface}`)
+
+
 }
 
 deploy()
